@@ -5,7 +5,7 @@ Create a file with the current date and an extension.
 ## Installation
 
 ```sh
-ya pkg add Aninsi-Sasberg/date-file.yazi
+ya pkg add Aninsi-Sasberg/date-file
 ```
 
 ## Usage
