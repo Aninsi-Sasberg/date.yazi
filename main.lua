@@ -20,12 +20,7 @@ end
 
 return {
 	entry = function(_, job)
-		local date, err = Command("date"):arg("-I"):output()
-		if not date then
-			return info("Failed to run 'date', error: " .. err)
-		elseif date.stdout == "" then
-			return info("Failed to run 'date', error: no date was returned")
-		end
+    date = os.date("%Y-%m-%d")
 
     if job.args.ext == "" then
       ext = ""
@@ -42,11 +37,9 @@ return {
       ext = "." .. ext
     end
 
-    filename = date.stdout:gsub("^%s*(.-)%s*$", "%1") .. ext
+    filename = date .. ext
 
-		local output, err = Command("touch"):arg(filename):output()
-		if not output then
-			return info("Failed to run 'touch', error: " .. err)
-		end
+    file = io.open(filename, "w")
+    file:close()
 	end,
 }
