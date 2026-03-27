@@ -43,12 +43,14 @@ return {
       end
 
       filename = filename .. ext
-    end
-
-    local ok, err = fs.create("dir", Url(filename))
-    if err then
-      info(err)
-      return
+      file = io.open(filename, "w")
+      file:close()
+    else
+      local ok, err = fs.create("dir", Url(filename))
+      if err then
+        info(err)
+        return
+      end
     end
   end
 }
