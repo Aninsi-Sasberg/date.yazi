@@ -1,4 +1,4 @@
-# date-file.yazi
+# date.yazi
 
 Create a file with the current date and an extension.
 
